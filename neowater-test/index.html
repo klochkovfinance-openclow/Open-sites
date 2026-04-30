@@ -632,8 +632,12 @@ section {
 .about-visual {
   position: relative;
   aspect-ratio: 1 / 1.05;
+  width: min(100%, 520px);
   max-width: 520px;
-  margin-left: auto;
+  margin: 0 auto;
+}
+@media (min-width: 1025px) {
+  .about-visual { margin-left: 0; }
 }
 .visual-text {
   position: absolute;
@@ -654,7 +658,10 @@ section {
   line-height: 1;
   color: var(--white);
   letter-spacing: -0.05em;
-  text-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  text-shadow:
+    0 6px 20px rgba(0, 0, 0, 0.4),
+    0 0 34px rgba(245, 200, 66, 0.28),
+    0 0 70px rgba(95, 166, 166, 0.18);
 }
 .visual-text-mid {
   font-family: 'Unbounded', sans-serif;
@@ -1590,7 +1597,7 @@ footer {
         </div>
         <div class="visual-text">
           <div class="visual-text-big">2019</div>
-          <div class="visual-text-mid">с момента основания</div>
+          <div class="visual-text-mid">год основания</div>
         </div>
       </div>
     </div>
