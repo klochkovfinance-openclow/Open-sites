@@ -1,0 +1,2074 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>NeoWater — Производство очистных сооружений и емкостного оборудования</title>
+<meta name="description" content="Блочно-модульные очистные сооружения и емкостное оборудование для промышленных предприятий. Промстоки, хозбытовые, ливневые, водоподготовка. Производительность до 2000 м³/сут. Гарантия до 5 лет." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Unbounded:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --teal-900: #0e3838;
+  --teal-800: #144848;
+  --teal-700: #1a5757;
+  --teal-600: #1f6868;
+  --teal-500: #257878;
+  --teal-400: #3a8c8c;
+  --teal-300: #5fa6a6;
+  --teal-glass: rgba(20, 72, 72, 0.6);
+
+  --gold: #f5c842;
+  --gold-bright: #ffd75e;
+  --gold-deep: #d4a724;
+  --gold-soft: rgba(245, 200, 66, 0.15);
+
+  --white: #ffffff;
+  --cream: #f7f4ec;
+  --muted: #b8d4d4;
+  --muted-2: #8aafb0;
+
+  --line: rgba(245, 200, 66, 0.2);
+  --line-soft: rgba(255, 255, 255, 0.08);
+  --line-strong: rgba(245, 200, 66, 0.5);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Manrope', system-ui, -apple-system, sans-serif;
+  background: var(--teal-700);
+  color: var(--white);
+  font-size: 16px;
+  line-height: 1.55;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* GLOBAL ATMOSPHERE - hexagonal pattern background like in brand book */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(1200px 800px at 85% 0%, rgba(245, 200, 66, 0.07), transparent 60%),
+    radial-gradient(900px 600px at 0% 100%, rgba(58, 140, 140, 0.25), transparent 60%);
+}
+
+/* Subtle hexagonal pattern overlay */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='92' viewBox='0 0 80 92'%3E%3Cpath d='M40 0 L80 23 L80 69 L40 92 L0 69 L0 23 Z' fill='none' stroke='%23f5c842' stroke-width='1'/%3E%3C/svg%3E");
+  background-size: 120px 138px;
+}
+
+main, header, footer { position: relative; z-index: 1; }
+
+/* TYPOGRAPHY UTILS */
+.display { font-family: 'Unbounded', 'Manrope', sans-serif; letter-spacing: -0.03em; line-height: 0.98; font-weight: 600; }
+.eyebrow {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 20px;
+}
+
+/* CONTAINERS */
+.wrap { max-width: 1380px; margin: 0 auto; padding: 0 32px; }
+@media (max-width: 768px) { .wrap { padding: 0 20px; } }
+
+/* ============ HEADER ============ */
+header {
+  position: sticky;
+  top: 0;
+  background: rgba(20, 72, 72, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--line);
+  z-index: 100;
+}
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 0;
+  gap: 32px;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+.logo svg {
+  width: 200px;
+  height: auto;
+  display: block;
+}
+@media (max-width: 600px) { .logo svg { width: 160px; } }
+.footer-brand .logo svg { width: 220px; }
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--gold); }
+@media (max-width: 1024px) { .nav-links { display: none; } }
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+.header-phone {
+  font-family: 'Unbounded', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  color: var(--white);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: color 0.2s;
+}
+.header-phone:hover { color: var(--gold); }
+@media (max-width: 600px) { .header-phone { display: none; } }
+
+/* BUTTONS */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 26px;
+  border-radius: 0;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+.btn-primary {
+  background: var(--gold);
+  color: var(--teal-900);
+}
+.btn-primary:hover {
+  background: var(--gold-bright);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(245, 200, 66, 0.35);
+}
+.btn-primary .arrow { transition: transform 0.25s; }
+.btn-primary:hover .arrow { transform: translateX(4px); }
+
+.btn-ghost {
+  background: transparent;
+  color: var(--white);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+.btn-ghost:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+/* ============ 3D HEXAGONS ============ */
+/* Изометрический 3D шестиугольник: 3 ромба = верхняя, левая, правая грани */
+.hex3d {
+  position: absolute;
+  display: block;
+  filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.35));
+  transition: transform 0.6s cubic-bezier(.2, .8, .2, 1);
+  pointer-events: none;
+}
+.hex3d svg { width: 100%; height: 100%; display: block; overflow: visible; }
+
+/* Блестящий блик поверх верхней грани */
+.hex3d .shine {
+  mix-blend-mode: screen;
+  opacity: 0.55;
+}
+
+/* Цветовые палитры для 3D-шестиугольников */
+.hex3d.gold .top { fill: #ffe082; }
+.hex3d.gold .right { fill: #f5c842; }
+.hex3d.gold .left { fill: #c99a18; }
+
+.hex3d.teal .top { fill: #5fa6a6; }
+.hex3d.teal .right { fill: #257878; }
+.hex3d.teal .left { fill: #0e3838; }
+
+.hex3d.lime .top { fill: #c5e85f; }
+.hex3d.lime .right { fill: #8fc02a; }
+.hex3d.lime .left { fill: #557818; }
+
+.hex3d.coral .top { fill: #ffb088; }
+.hex3d.coral .right { fill: #ff7f47; }
+.hex3d.coral .left { fill: #b8451f; }
+
+.hex3d.deep { /* темный — для глубины фона */ }
+.hex3d.deep .top { fill: #2a6f6f; }
+.hex3d.deep .right { fill: #154848; }
+.hex3d.deep .left { fill: #082525; }
+
+/* Анимация мягкого парения */
+@keyframes float-a { 0%, 100% { transform: translateY(0) rotate(var(--rot, 0deg)); } 50% { transform: translateY(-14px) rotate(calc(var(--rot, 0deg) + 1.5deg)); } }
+@keyframes float-b { 0%, 100% { transform: translateY(0) rotate(var(--rot, 0deg)); } 50% { transform: translateY(10px) rotate(calc(var(--rot, 0deg) - 2deg)); } }
+@keyframes float-c { 0%, 100% { transform: translate(0, 0) rotate(var(--rot, 0deg)); } 50% { transform: translate(-8px, -16px) rotate(calc(var(--rot, 0deg) + 3deg)); } }
+
+.hex3d.fa { animation: float-a 9s ease-in-out infinite; }
+.hex3d.fb { animation: float-b 11s ease-in-out infinite; }
+.hex3d.fc { animation: float-c 13s ease-in-out infinite; }
+
+/* Плавающий фон для всей страницы */
+.bg-float-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.bg-float-layer .hex3d { position: absolute; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hex3d.fa, .hex3d.fb, .hex3d.fc { animation: none; }
+}
+
+/* ============ HERO ============ */
+.hero {
+  position: relative;
+  padding: 100px 0 120px;
+  overflow: hidden;
+  border-bottom: 1px solid var(--line);
+}
+@media (max-width: 768px) { .hero { padding: 64px 0 80px; } }
+
+/* Decorative geometry — hexagons & triangles like in brand book */
+.hero-deco {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+@media (max-width: 700px) {
+  .hero-deco .hex3d:nth-child(2),
+  .hero-deco .hex3d:nth-child(3),
+  .hero-deco .hex3d:nth-child(4) { opacity: 0.4; }
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 64px;
+  align-items: end;
+  position: relative;
+}
+@media (max-width: 1024px) { .hero-grid { grid-template-columns: 1fr; gap: 48px; } }
+
+.hero-title {
+  font-family: 'Unbounded', sans-serif;
+  font-weight: 700;
+  font-size: clamp(44px, 6.5vw, 92px);
+  line-height: 0.96;
+  letter-spacing: -0.04em;
+  margin-bottom: 32px;
+}
+.hero-title .accent { color: var(--gold); }
+.hero-title .underline {
+  position: relative;
+  display: inline-block;
+}
+.hero-title .underline::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0;
+  bottom: -8px;
+  height: 4px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: drawLine 1.2s 0.4s ease forwards;
+}
+@keyframes drawLine {
+  to { transform: scaleX(1); }
+}
+
+.hero-lead {
+  font-size: 19px;
+  line-height: 1.55;
+  color: var(--muted);
+  max-width: 560px;
+  margin-bottom: 40px;
+}
+.hero-lead strong { color: var(--white); font-weight: 600; }
+
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.hero-side {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.hero-stat-card {
+  background: var(--teal-glass);
+  border: 1px solid var(--line);
+  padding: 28px 28px;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(8px);
+}
+.hero-stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 60px; height: 60px;
+  clip-path: polygon(100% 0, 0 0, 100% 100%);
+  background: var(--gold);
+  opacity: 0.15;
+}
+.hero-stat-num {
+  font-family: 'Unbounded', sans-serif;
+  font-weight: 700;
+  font-size: 56px;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: var(--white);
+  margin-bottom: 6px;
+}
+.hero-stat-num .plus { color: var(--gold); }
+.hero-stat-label {
+  font-size: 13px;
+  color: var(--muted);
+  letter-spacing: 0.05em;
+}
+
+.hero-stat-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+/* ============ SECTION SHELL ============ */
+section {
+  padding: 120px 0;
+  position: relative;
+  border-bottom: 1px solid var(--line);
+}
+@media (max-width: 768px) { section { padding: 80px 0; } }
+
+.section-head {
+  margin-bottom: 64px;
+  max-width: 900px;
+}
+.section-title {
+  font-family: 'Unbounded', sans-serif;
+  font-weight: 600;
+  font-size: clamp(36px, 5vw, 60px);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  margin-bottom: 20px;
+}
+.section-title em { font-style: normal; color: var(--gold); }
+.section-sub {
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 1.6;
+  max-width: 720px;
+}
+
+/* ============ STATS BAR ============ */
+.stats-bar {
+  background: var(--teal-800);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 48px 0;
+  position: relative;
+  overflow: hidden;
+}
+.stats-bar::before {
+  content: '';
+  position: absolute;
+  top: -100px; right: -100px;
+  width: 300px; height: 300px;
+  border: 1px solid var(--gold);
+  opacity: 0.08;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  position: relative;
+}
+@media (max-width: 900px) { .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 32px 24px; } }
+
+.stat-item {
+  border-left: 2px solid var(--gold);
+  padding-left: 20px;
+}
+.stat-num {
+  font-family: 'Unbounded', sans-serif;
+  font-weight: 700;
+  font-size: clamp(40px, 4vw, 56px);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  margin-bottom: 8px;
+}
+.stat-num .gold { color: var(--gold); }
+.stat-num .small { font-size: 0.45em; vertical-align: top; margin-left: 4px; font-weight: 500; color: var(--gold); }
+.stat-text {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+/* ============ ABOUT ============ */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+@media (max-width: 1024px) { .about-grid { grid-template-columns: 1fr; gap: 48px; } }
+
+.about-text p {
+  font-size: 18px;
+  line-height: 1.65;
+  color: var(--muted);
+  margin-bottom: 20px;
+}
+.about-text p strong { color: var(--white); font-weight: 600; }
+
+.about-quote {
+  margin-top: 36px;
+  padding: 28px 32px;
+  background: var(--teal-glass);
+  border-left: 4px solid var(--gold);
+  font-family: 'Unbounded', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.5;
+  color: var(--white);
+  letter-spacing: -0.01em;
+}
+
+.about-visual {
+  position: relative;
+  aspect-ratio: 1 / 1.05;
+  max-width: 520px;
+  margin-left: auto;
+}
+.visual-text {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+  padding: 0 40px;
+  text-align: center;
+  pointer-events: none;
+}
+.visual-text-big {
+  font-family: 'Unbounded', sans-serif;
+  font-weight: 700;
+  font-size: 110px;
+  line-height: 1;
+  color: var(--white);
+  letter-spacing: -0.05em;
+  text-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+.visual-text-mid {
+  font-family: 'Unbounded', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--gold);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-top: 12px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+@media (max-width: 600px) {
+  .visual-text-big { font-size: 80px; }
+  .visual-text-mid { font-size: 12px; }
+}
+
+/* ============ SOLUTIONS / CATEGORIES ============ */
+.solutions {
+  background: var(--teal-800);
+}
+.sols-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+@media (max-width: 1024px) { .sols-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .sols-grid { grid-template-columns: 1fr; } }
+
+.sol {
+  background: var(--teal-700);
+  padding: 36px 28px 32px;
+  position: relative;
+  transition: background 0.3s ease;
+  cursor: default;
+  display: flex;
+  flex-direction: column;
+  min-height: 220px;
+}
+.sol:hover { background: var(--teal-600); }
+.sol:hover .sol-num { color: var(--gold-bright); transform: scale(1.05); }
+
+.sol-num {
+  font-family: 'Unbounded', sans-serif;
+  font-weight: 700;
+  font-size: 36px;
+  color: var(--gold);
+  margin-bottom: 24px;
+  transition: all 0.3s ease;
+  display: inline-block;
+  transform-origin: left center;
+  letter-spacing: -0.03em;
+}
+
+.sol-title {
+  font-family: 'Unbounded', sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  margin-bottom: 10px;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+.sol-desc {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* ============ TECHNOLOGY ============ */
+.tech-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 64px;
+  align-items: center;
+}
+@media (max-width: 1024px) { .tech-grid { grid-template-columns: 1fr; gap: 48px; } }
+
+.tech-features {
+  list-style: none;
+  display: grid;
+  gap: 1px;
+  margin-top: 32px;
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+.tech-features li {
+  background: var(--teal-glass);
+  padding: 20px 24px;
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  align-items: start;
+  gap: 16px;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--white);
+}
+.tech-features li::before {
+  content: counter(feat, decimal-leading-zero);
+  counter-increment: feat;
+  font-family: 'Unbounded', sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--gold);
+  letter-spacing: -0.02em;
+}
+.tech-features { counter-reset: feat; }
+
+/* Schematic illustration */
+.tech-visual {
+  background: var(--teal-800);
+  border: 1px solid var(--line);
+  padding: 32px;
+  position: relative;
+  aspect-ratio: 1 / 0.92;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.tech-visual::before {
+  content: 'BLOCK MODULE / NW—001';
+  position: absolute;
+  top: 16px; left: 24px;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--gold);
+  font-weight: 600;
+}
+.tech-visual::after {
+  content: 'CAPACITY: 2000 m³/24h';
+  position: absolute;
+  bottom: 16px; right: 24px;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  color: var(--muted-2);
+  font-weight: 500;
+}
+.tech-visual svg { width: 100%; max-width: 480px; height: auto; }
+
+/* ============ STAGES ============ */
+.stages {
+  display: grid;
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+.stage {
+  background: var(--teal-700);
+  display: grid;
+  grid-template-columns: 120px 320px 1fr 70px;
+  align-items: stretch;
+  transition: background 0.3s ease;
+}
+.stage:hover { background: var(--teal-600); }
+.stage:hover .stage-num { color: var(--gold-bright); }
+.stage:hover .stage-arrow { color: var(--gold); transform: translateX(8px); }
+
+@media (max-width: 1000px) {
+  .stage { grid-template-columns: 90px 1fr 50px; }
+  .stage-desc {
+    grid-column: 1 / -1;
+    padding: 0 24px 28px 24px;
+    border-top: 1px solid var(--line);
+    margin-top: 0;
+  }
+  .stage-name { padding-right: 16px; }
+}
+
+.stage-num {
+  font-family: 'Unbounded', sans-serif;
+  font-weight: 700;
+  font-size: 64px;
+  color: var(--gold-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: -0.04em;
+  transition: color 0.3s ease;
+  border-right: 1px solid var(--line);
+}
+@media (max-width: 600px) { .stage-num { font-size: 44px; } }
+
+.stage-name {
+  font-family: 'Unbounded', sans-serif;
+  font-weight: 500;
+  font-size: 22px;
+  letter-spacing: -0.02em;
+  display: flex;
+  align-items: center;
+  padding: 28px 24px;
+  border-right: 1px solid var(--line);
+}
+@media (max-width: 1000px) { .stage-name { border-right: 0; padding: 24px; } }
+
+.stage-desc {
+  display: flex;
+  align-items: center;
+  padding: 28px 32px;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.stage-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted-2);
+  transition: all 0.25s;
+}
+
+/* ============ ADVANTAGES ============ */
+.advantages {
+  background: var(--teal-800);
+}
+.adv-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+@media (max-width: 900px) { .adv-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .adv-grid { grid-template-columns: 1fr; } }
+
+.adv {
+  background: var(--teal-700);
+  padding: 40px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: background 0.25s;
+  position: relative;
+  overflow: hidden;
+}
+.adv:hover { background: var(--teal-600); }
+
+.adv-icon {
+  width: 56px; height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-bottom: 8px;
+}
+.adv-icon::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--gold);
+  opacity: 0.2;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+.adv-icon svg {
+  width: 28px; height: 28px;
+  color: var(--gold);
+  position: relative;
+  z-index: 1;
+}
+
+.adv-title {
+  font-family: 'Unbounded', sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  letter-spacing: -0.02em;
+  color: var(--gold);
+  text-transform: uppercase;
+  line-height: 1.15;
+}
+.adv-text {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+/* ============ CASES ============ */
+.cases-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+@media (max-width: 1024px) { .cases-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 640px) { .cases-grid { grid-template-columns: 1fr; } }
+
+.case {
+  background: var(--teal-700);
+  padding: 36px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: background 0.3s ease;
+  position: relative;
+  min-height: 280px;
+}
+.case:hover { background: var(--teal-600); }
+
+.case-loc {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 600;
+}
+.case-loc::before {
+  content: '';
+  width: 6px; height: 6px;
+  background: var(--gold);
+  border-radius: 50%;
+}
+
+.case-title {
+  font-family: 'Unbounded', sans-serif;
+  font-weight: 500;
+  font-size: 22px;
+  letter-spacing: -0.02em;
+  line-height: 1.18;
+  color: var(--white);
+}
+
+.case-tag {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: -4px;
+  line-height: 1.5;
+}
+
+.case-meta {
+  margin-top: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+}
+.case-stat-num {
+  font-family: 'Unbounded', sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  letter-spacing: -0.03em;
+  color: var(--white);
+  line-height: 1.1;
+  margin-bottom: 4px;
+}
+.case-stat-num .unit { font-size: 12px; color: var(--gold); margin-left: 4px; font-weight: 500; letter-spacing: 0; }
+.case-stat-label {
+  font-size: 11px;
+  color: var(--muted-2);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ============ CLIENTS ============ */
+.clients-bar {
+  background: var(--teal-800);
+  padding: 64px 0;
+  border-bottom: 1px solid var(--line);
+}
+.clients-head {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.clients-title {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 14px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 600;
+}
+.clients-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 32px;
+  align-items: center;
+}
+@media (max-width: 900px) { .clients-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; } }
+
+.client-logo {
+  font-family: 'Unbounded', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  text-align: center;
+  color: var(--white);
+  opacity: 0.65;
+  transition: opacity 0.25s, color 0.25s;
+  letter-spacing: 0.02em;
+  padding: 16px;
+  border: 1px solid var(--line-soft);
+  text-transform: uppercase;
+}
+.client-logo:hover { opacity: 1; color: var(--gold); border-color: var(--line); }
+@media (max-width: 600px) { .client-logo { font-size: 16px; } }
+
+/* ============ CTA / FORM ============ */
+.cta-section {
+  position: relative;
+  padding: 120px 0;
+  overflow: hidden;
+  background:
+    radial-gradient(800px 500px at 80% 30%, rgba(245, 200, 66, 0.12), transparent 60%),
+    var(--teal-700);
+  border-bottom: 1px solid var(--line);
+}
+@media (max-width: 768px) { .cta-section { padding: 80px 0; } }
+
+.cta-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='92' viewBox='0 0 80 92'%3E%3Cpath d='M40 0 L80 23 L80 69 L40 92 L0 69 L0 23 Z' fill='none' stroke='%23f5c842' stroke-width='1'/%3E%3C/svg%3E");
+  background-size: 100px 115px;
+  opacity: 0.04;
+}
+
+.cta-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 80px;
+  align-items: start;
+  position: relative;
+}
+@media (max-width: 1024px) { .cta-grid { grid-template-columns: 1fr; gap: 48px; } }
+
+.cta-headline {
+  font-family: 'Unbounded', sans-serif;
+  font-weight: 700;
+  font-size: clamp(36px, 5vw, 56px);
+  line-height: 1.0;
+  letter-spacing: -0.03em;
+  margin-bottom: 24px;
+}
+.cta-headline em { font-style: normal; color: var(--gold); }
+
+.cta-text {
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.6;
+  max-width: 480px;
+  margin-bottom: 32px;
+}
+
+.cta-bullets {
+  list-style: none;
+  display: grid;
+  gap: 16px;
+}
+.cta-bullets li {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  align-items: start;
+  gap: 14px;
+  font-size: 15px;
+  color: var(--white);
+  line-height: 1.5;
+}
+.cta-bullets li::before {
+  content: '';
+  width: 24px;
+  height: 28px;
+  background: var(--gold);
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  position: relative;
+}
+
+/* FORM CARD */
+.form-card {
+  background: var(--teal-800);
+  border: 1px solid var(--line-strong);
+  padding: 40px 36px;
+  position: relative;
+}
+.form-card::before {
+  content: '';
+  position: absolute;
+  top: -1px; left: -1px;
+  width: 32px; height: 32px;
+  border-top: 3px solid var(--gold);
+  border-left: 3px solid var(--gold);
+}
+.form-card::after {
+  content: '';
+  position: absolute;
+  bottom: -1px; right: -1px;
+  width: 32px; height: 32px;
+  border-bottom: 3px solid var(--gold);
+  border-right: 3px solid var(--gold);
+}
+
+.form-head {
+  margin-bottom: 28px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--line);
+}
+.form-title {
+  font-family: 'Unbounded', sans-serif;
+  font-weight: 600;
+  font-size: 22px;
+  letter-spacing: -0.02em;
+  margin-bottom: 6px;
+}
+.form-sub {
+  color: var(--muted-2);
+  font-size: 13px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.field { margin-bottom: 18px; }
+.field label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  background: var(--teal-900);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: var(--white);
+  padding: 14px 16px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.2s, background 0.2s;
+  border-radius: 0;
+}
+.field textarea { resize: vertical; min-height: 90px; }
+.field select {
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath fill='%23f5c842' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  background-size: 10px;
+  padding-right: 40px;
+}
+.field input::placeholder,
+.field textarea::placeholder { color: var(--muted-2); }
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  border-color: var(--gold);
+  background: var(--teal-700);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+@media (max-width: 600px) { .form-row { grid-template-columns: 1fr; } }
+
+.form-submit {
+  width: 100%;
+  background: var(--gold);
+  color: var(--teal-900);
+  border: none;
+  padding: 18px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.25s;
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+.form-submit:hover {
+  background: var(--gold-bright);
+  box-shadow: 0 12px 32px rgba(245, 200, 66, 0.35);
+}
+
+.form-note {
+  font-size: 12px;
+  color: var(--muted-2);
+  margin-top: 16px;
+  line-height: 1.55;
+  text-align: center;
+}
+.form-note a { color: var(--gold); }
+
+/* SUCCESS state */
+.form-success {
+  text-align: center;
+  padding: 32px 8px;
+  display: none;
+}
+.form-success.show { display: block; }
+.form-success h3 {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 24px;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+.form-success p { color: var(--muted); font-size: 15px; }
+
+/* ============ FOOTER ============ */
+footer {
+  background: var(--teal-900);
+  padding: 80px 0 32px;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 48px;
+  margin-bottom: 56px;
+}
+@media (max-width: 900px) { .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; } }
+@media (max-width: 500px) { .footer-grid { grid-template-columns: 1fr; } }
+
+.footer-brand .logo { margin-bottom: 20px; }
+.footer-brand p {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.6;
+  max-width: 360px;
+}
+
+.footer-col h4 {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 18px;
+  font-weight: 600;
+}
+.footer-col ul { list-style: none; display: grid; gap: 10px; }
+.footer-col a, .footer-col li {
+  color: var(--muted);
+  font-size: 14px;
+  text-decoration: none;
+  transition: color 0.2s;
+  line-height: 1.5;
+}
+.footer-col a:hover { color: var(--gold); }
+
+.footer-contacts { display: grid; gap: 14px; }
+.footer-contact {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4px;
+}
+.footer-contact-label {
+  font-size: 11px;
+  color: var(--muted-2);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.footer-contact-value {
+  color: var(--white);
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+.footer-contact-value:hover { color: var(--gold); }
+
+.footer-bottom {
+  padding-top: 32px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  color: var(--muted-2);
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+/* REVEAL */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+.reveal.in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  .reveal { opacity: 1; transform: none; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- Плавающий 3D-фон -->
+<div class="bg-float-layer" aria-hidden="true">
+  <div class="hex3d teal fa" style="top: 18%; left: -60px; width: 180px; height: 207px; --rot: 18deg; transform: rotate(18deg); opacity: 0.35;">
+    <svg viewBox="0 0 100 115" xmlns="http://www.w3.org/2000/svg">
+      <polygon class="top"   points="50,0 100,28.75 50,57.5 0,28.75"/>
+      <polygon class="right" points="100,28.75 100,86.25 50,115 50,57.5"/>
+      <polygon class="left"  points="0,28.75 50,57.5 50,115 0,86.25"/>
+    </svg>
+  </div>
+  <div class="hex3d gold fb" style="top: 65%; right: -40px; width: 130px; height: 150px; --rot: -12deg; transform: rotate(-12deg); opacity: 0.4;">
+    <svg viewBox="0 0 100 115" xmlns="http://www.w3.org/2000/svg">
+      <polygon class="top"   points="50,0 100,28.75 50,57.5 0,28.75"/>
+      <polygon class="right" points="100,28.75 100,86.25 50,115 50,57.5"/>
+      <polygon class="left"  points="0,28.75 50,57.5 50,115 0,86.25"/>
+    </svg>
+  </div>
+  <div class="hex3d lime fc" style="top: 42%; left: 8%; width: 90px; height: 104px; --rot: 28deg; transform: rotate(28deg); opacity: 0.25;">
+    <svg viewBox="0 0 100 115" xmlns="http://www.w3.org/2000/svg">
+      <polygon class="top"   points="50,0 100,28.75 50,57.5 0,28.75"/>
+      <polygon class="right" points="100,28.75 100,86.25 50,115 50,57.5"/>
+      <polygon class="left"  points="0,28.75 50,57.5 50,115 0,86.25"/>
+    </svg>
+  </div>
+  <div class="hex3d coral fa" style="top: 88%; right: 18%; width: 80px; height: 92px; --rot: 5deg; transform: rotate(5deg); opacity: 0.3;">
+    <svg viewBox="0 0 100 115" xmlns="http://www.w3.org/2000/svg">
+      <polygon class="top"   points="50,0 100,28.75 50,57.5 0,28.75"/>
+      <polygon class="right" points="100,28.75 100,86.25 50,115 50,57.5"/>
+      <polygon class="left"  points="0,28.75 50,57.5 50,115 0,86.25"/>
+    </svg>
+  </div>
+</div>
+
+<!-- ============ HEADER ============ -->
+<header>
+  <div class="wrap">
+    <nav class="nav">
+      <a href="#" class="logo" aria-label="NeoWater">
+        <svg viewBox="0 0 360 64" xmlns="http://www.w3.org/2000/svg" fill="none" aria-hidden="true">
+          <!-- N E -->
+          <text x="0" y="48" font-family="Unbounded, sans-serif" font-weight="400" font-size="44" letter-spacing="6" fill="#f5c842">N E</text>
+          <!-- O with graph -->
+          <circle cx="124" cy="32" r="19" stroke="#f5c842" stroke-width="2.4" fill="none"/>
+          <line x1="124" y1="18" x2="113" y2="43" stroke="#f5c842" stroke-width="1.2" opacity="0.85"/>
+          <line x1="124" y1="18" x2="135" y2="43" stroke="#f5c842" stroke-width="1.2" opacity="0.85"/>
+          <line x1="113" y1="43" x2="135" y2="43" stroke="#f5c842" stroke-width="1.2" opacity="0.85"/>
+          <circle cx="124" cy="18" r="3.4" fill="#f5c842"/>
+          <circle cx="113" cy="43" r="3" fill="#f5c842"/>
+          <circle cx="135" cy="43" r="3" fill="#f5c842"/>
+          <!-- W A T -->
+          <text x="150" y="48" font-family="Unbounded, sans-serif" font-weight="400" font-size="44" letter-spacing="6" fill="#f5c842">W A T</text>
+          <!-- E with horizontal lines + dots (vertical bar at x=276) -->
+          <line x1="276" y1="13" x2="276" y2="51" stroke="#f5c842" stroke-width="2.4" stroke-linecap="round"/>
+          <line x1="276" y1="13" x2="302" y2="13" stroke="#f5c842" stroke-width="2.4" stroke-linecap="round"/>
+          <line x1="276" y1="32" x2="294" y2="32" stroke="#f5c842" stroke-width="2.4" stroke-linecap="round"/>
+          <line x1="276" y1="51" x2="302" y2="51" stroke="#f5c842" stroke-width="2.4" stroke-linecap="round"/>
+          <circle cx="307" cy="13" r="3.2" fill="#f5c842"/>
+          <circle cx="299" cy="32" r="3.2" fill="#f5c842"/>
+          <circle cx="307" cy="51" r="3.2" fill="#f5c842"/>
+          <!-- R -->
+          <text x="318" y="48" font-family="Unbounded, sans-serif" font-weight="400" font-size="44" letter-spacing="0" fill="#f5c842">R</text>
+        </svg>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#solutions">Решения</a></li>
+        <li><a href="#technology">Технология</a></li>
+        <li><a href="#stages">Этапы работы</a></li>
+        <li><a href="#cases">Объекты</a></li>
+        <li><a href="#contacts">Контакты</a></li>
+      </ul>
+      <div class="header-right">
+        <a href="tel:+74997073010" class="header-phone">+7 (499) 707-30-10</a>
+        <a href="#cta" class="btn btn-primary">
+          Расчёт <span class="arrow">→</span>
+        </a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="hero-deco" aria-hidden="true">
+    <!-- Большой жёлтый 3D-шестиугольник в углу -->
+    <div class="hex3d gold fa" style="top: 6%; right: -120px; width: 360px; height: 415px; --rot: 12deg; transform: rotate(12deg);">
+      <svg viewBox="0 0 100 115" xmlns="http://www.w3.org/2000/svg">
+        <polygon class="top"   points="50,0 100,28.75 50,57.5 0,28.75"/>
+        <polygon class="right" points="100,28.75 100,86.25 50,115 50,57.5"/>
+        <polygon class="left"  points="0,28.75 50,57.5 50,115 0,86.25"/>
+        <polygon class="shine" points="50,0 100,28.75 50,57.5 0,28.75" fill="url(#shineG)"/>
+        <defs>
+          <linearGradient id="shineG" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#fff8cf" stop-opacity="0.7"/>
+            <stop offset="100%" stop-color="#fff8cf" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+      </svg>
+    </div>
+    <!-- Бирюзовый средний -->
+    <div class="hex3d teal fb" style="top: 38%; right: 12%; width: 200px; height: 230px; --rot: -8deg; transform: rotate(-8deg);">
+      <svg viewBox="0 0 100 115" xmlns="http://www.w3.org/2000/svg">
+        <polygon class="top"   points="50,0 100,28.75 50,57.5 0,28.75"/>
+        <polygon class="right" points="100,28.75 100,86.25 50,115 50,57.5"/>
+        <polygon class="left"  points="0,28.75 50,57.5 50,115 0,86.25"/>
+      </svg>
+    </div>
+    <!-- Лайм -->
+    <div class="hex3d lime fc" style="bottom: 8%; right: 32%; width: 110px; height: 127px; --rot: 22deg; transform: rotate(22deg);">
+      <svg viewBox="0 0 100 115" xmlns="http://www.w3.org/2000/svg">
+        <polygon class="top"   points="50,0 100,28.75 50,57.5 0,28.75"/>
+        <polygon class="right" points="100,28.75 100,86.25 50,115 50,57.5"/>
+        <polygon class="left"  points="0,28.75 50,57.5 50,115 0,86.25"/>
+      </svg>
+    </div>
+    <!-- Коралл маленький -->
+    <div class="hex3d coral fa" style="top: 18%; left: 38%; width: 70px; height: 80px; --rot: 35deg; transform: rotate(35deg); opacity: 0.85;">
+      <svg viewBox="0 0 100 115" xmlns="http://www.w3.org/2000/svg">
+        <polygon class="top"   points="50,0 100,28.75 50,57.5 0,28.75"/>
+        <polygon class="right" points="100,28.75 100,86.25 50,115 50,57.5"/>
+        <polygon class="left"  points="0,28.75 50,57.5 50,115 0,86.25"/>
+      </svg>
+    </div>
+    <!-- Глубокий тёмный для фоновой глубины -->
+    <div class="hex3d deep fb" style="bottom: -80px; left: -80px; width: 280px; height: 322px; --rot: -15deg; transform: rotate(-15deg); opacity: 0.6;">
+      <svg viewBox="0 0 100 115" xmlns="http://www.w3.org/2000/svg">
+        <polygon class="top"   points="50,0 100,28.75 50,57.5 0,28.75"/>
+        <polygon class="right" points="100,28.75 100,86.25 50,115 50,57.5"/>
+        <polygon class="left"  points="0,28.75 50,57.5 50,115 0,86.25"/>
+      </svg>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="reveal">
+        <div class="eyebrow">Промышленные очистные сооружения</div>
+        <h1 class="hero-title">
+          Чистая вода<br>
+          для <span class="accent underline">промышленности</span><br>
+          без компромиссов
+        </h1>
+        <p class="hero-lead">
+          Проектируем и производим <strong>блочно-модульные очистные сооружения</strong> и емкостное оборудование для промышленных предприятий. От аудита до сервисного обслуживания — полный цикл под ключ.
+        </p>
+        <div class="hero-actions">
+          <a href="#cta" class="btn btn-primary">
+            Оставить заявку на расчёт <span class="arrow">→</span>
+          </a>
+          <a href="#cases" class="btn btn-ghost">
+            Смотреть объекты
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-side reveal" style="transition-delay: 0.15s">
+        <div class="hero-stat-card">
+          <div class="hero-stat-num">2000<span class="plus"></span></div>
+          <div class="hero-stat-label">м³/сутки — производительность БМОС</div>
+        </div>
+        <div class="hero-stat-row">
+          <div class="hero-stat-card">
+            <div class="hero-stat-num"><span class="plus">+</span>1000</div>
+            <div class="hero-stat-label">отгруженных изделий</div>
+          </div>
+          <div class="hero-stat-card">
+            <div class="hero-stat-num">50<span class="plus">+</span></div>
+            <div class="hero-stat-label">реализованных проектов</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STATS BAR ============ -->
+<div class="stats-bar">
+  <div class="wrap">
+    <div class="stats-grid">
+      <div class="stat-item reveal">
+        <div class="stat-num">5<span class="small">лет</span></div>
+        <div class="stat-text">на рынке промышленной водоочистки</div>
+      </div>
+      <div class="stat-item reveal" style="transition-delay: 0.1s">
+        <div class="stat-num">3000<span class="small">м²</span></div>
+        <div class="stat-text">собственных производственных площадей</div>
+      </div>
+      <div class="stat-item reveal" style="transition-delay: 0.2s">
+        <div class="stat-num"><span class="gold">до 5</span><span class="small">лет</span></div>
+        <div class="stat-text">гарантия — срок эксплуатации до 50 лет</div>
+      </div>
+      <div class="stat-item reveal" style="transition-delay: 0.3s">
+        <div class="stat-num">8<span class="small">типов</span></div>
+        <div class="stat-text">блочно-модульных решений в линейке</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ ABOUT ============ -->
+<section id="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <div class="eyebrow">О компании</div>
+        <h2 class="section-title">Высокотехнологичные решения для&nbsp;<em>очистки сточных вод</em></h2>
+        <p>
+          <strong>NeoWater</strong> — производитель промышленных очистных сооружений и емкостного оборудования. Основан в 2019 году. За пять лет вырос из инжинирингового стартапа в признанного игрока рынка с собственным производством 3000 м² и десятками реализованных объектов от Чукотки до Краснодарского края.
+        </p>
+        <p>
+          В нашем штате — опытные технологи, инженеры и проектировщики. Мы разрабатываем решения под конкретный объект: от изыскательских работ до пусконаладки и сервисного обслуживания.
+        </p>
+        <div class="about-quote">
+          «Мы стремимся к созданию более зелёного и экологически безопасного будущего, где все люди имеют доступ к чистой воде»
+        </div>
+      </div>
+
+      <div class="about-visual reveal" style="transition-delay: 0.15s" aria-hidden="true">
+        <!-- Большой бирюзовый 3D — фон -->
+        <div class="hex3d teal" style="top: 0; left: 50%; width: 90%; height: 100%; transform: translateX(-50%);">
+          <svg viewBox="0 0 100 115" xmlns="http://www.w3.org/2000/svg">
+            <polygon class="top"   points="50,0 100,28.75 50,57.5 0,28.75"/>
+            <polygon class="right" points="100,28.75 100,86.25 50,115 50,57.5"/>
+            <polygon class="left"  points="0,28.75 50,57.5 50,115 0,86.25"/>
+          </svg>
+        </div>
+        <!-- Жёлтый средний слева вверху -->
+        <div class="hex3d gold fa" style="top: 8%; left: -8%; width: 40%; height: 46%; --rot: 0deg;">
+          <svg viewBox="0 0 100 115" xmlns="http://www.w3.org/2000/svg">
+            <polygon class="top"   points="50,0 100,28.75 50,57.5 0,28.75"/>
+            <polygon class="right" points="100,28.75 100,86.25 50,115 50,57.5"/>
+            <polygon class="left"  points="0,28.75 50,57.5 50,115 0,86.25"/>
+          </svg>
+        </div>
+        <!-- Лайм маленький справа внизу -->
+        <div class="hex3d lime fc" style="bottom: 6%; right: 4%; width: 28%; height: 32%; --rot: 12deg; transform: rotate(12deg);">
+          <svg viewBox="0 0 100 115" xmlns="http://www.w3.org/2000/svg">
+            <polygon class="top"   points="50,0 100,28.75 50,57.5 0,28.75"/>
+            <polygon class="right" points="100,28.75 100,86.25 50,115 50,57.5"/>
+            <polygon class="left"  points="0,28.75 50,57.5 50,115 0,86.25"/>
+          </svg>
+        </div>
+        <!-- Коралл маленький слева внизу -->
+        <div class="hex3d coral fb" style="bottom: 18%; left: 4%; width: 16%; height: 18%; --rot: -20deg; transform: rotate(-20deg);">
+          <svg viewBox="0 0 100 115" xmlns="http://www.w3.org/2000/svg">
+            <polygon class="top"   points="50,0 100,28.75 50,57.5 0,28.75"/>
+            <polygon class="right" points="100,28.75 100,86.25 50,115 50,57.5"/>
+            <polygon class="left"  points="0,28.75 50,57.5 50,115 0,86.25"/>
+          </svg>
+        </div>
+        <div class="visual-text">
+          <div class="visual-text-big">2019</div>
+          <div class="visual-text-mid">с момента основания</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SOLUTIONS ============ -->
+<section id="solutions" class="solutions">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Решения</div>
+      <h2 class="section-title">8&nbsp;типов <em>блочно-модульных</em><br>очистных сооружений</h2>
+      <p class="section-sub">
+        Производим оборудование под любой тип сточных вод и задач водоснабжения. Каждое решение проектируется индивидуально под объект заказчика — производительность, состав стоков, климатические условия.
+      </p>
+    </div>
+
+    <div class="sols-grid">
+      <div class="sol reveal"><div class="sol-num">01</div><div class="sol-title">Хозяйственно‑бытовой сток</div><div class="sol-desc">Очистка стоков от жилых, административных и социальных объектов до норм сброса в водоёмы рыбохозяйственного назначения.</div></div>
+      <div class="sol reveal" style="transition-delay: 0.05s"><div class="sol-num">02</div><div class="sol-title">Промышленный сток</div><div class="sol-desc">Технологические сточные воды производств с индивидуальным проектированием под состав загрязнений.</div></div>
+      <div class="sol reveal" style="transition-delay: 0.1s"><div class="sol-num">03</div><div class="sol-title">Ливневый сток</div><div class="sol-desc">Очистка дождевых и талых вод с территорий промплощадок, парковок и логистических центров.</div></div>
+      <div class="sol reveal" style="transition-delay: 0.15s"><div class="sol-num">04</div><div class="sol-title">Станции водоподготовки</div><div class="sol-desc">Подготовка воды для технологических нужд и питьевого водоснабжения в условиях удалённых объектов.</div></div>
+      <div class="sol reveal"><div class="sol-num">05</div><div class="sol-title">Станции пожаротушения</div><div class="sol-desc">Системы хранения противопожарного запаса воды и насосные станции пожаротушения (ПНС).</div></div>
+      <div class="sol reveal" style="transition-delay: 0.05s"><div class="sol-num">06</div><div class="sol-title">КНС</div><div class="sol-desc">Канализационные насосные станции из стеклопластика с автоматизированным управлением.</div></div>
+      <div class="sol reveal" style="transition-delay: 0.1s"><div class="sol-num">07</div><div class="sol-title">ВНС</div><div class="sol-desc">Насосные станции водоснабжения с регулируемой производительностью под нужды объекта.</div></div>
+      <div class="sol reveal" style="transition-delay: 0.15s"><div class="sol-num">08</div><div class="sol-title">Емкостное оборудование</div><div class="sol-desc">Емкости из стеклопластика и стали, ЛОС, маслобензоотделители, пескоуловители, жироуловители, колодцы.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TECHNOLOGY ============ -->
+<section id="technology">
+  <div class="wrap">
+    <div class="tech-grid">
+      <div class="reveal">
+        <div class="eyebrow">Технология</div>
+        <h2 class="section-title">Блочно‑модульные<br><em>очистные сооружения</em></h2>
+        <p class="section-sub">
+          Готовые модули заводской сборки, объединённые в технологическую линию очистки. Поставляются как единая система — собирается на объекте за недели, а не за месяцы. Подходит для удалённых площадок без капитального строительства.
+        </p>
+        <ul class="tech-features">
+          <li>Высокая степень заводской готовности — минимум монтажных работ на площадке</li>
+          <li>Эксплуатация в широком диапазоне температур, в том числе в условиях Крайнего Севера</li>
+          <li>Производительность до 2000 м³/сутки в одной линии — масштабирование за счёт добавления модулей</li>
+          <li>Автоматизация процессов и удалённый мониторинг параметров работы</li>
+          <li>Срок эксплуатации до 50 лет, гарантия от производителя — до 5 лет</li>
+        </ul>
+      </div>
+
+      <div class="tech-visual reveal" style="transition-delay: 0.15s" aria-hidden="true">
+        <svg viewBox="0 0 480 440" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+              <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#f5c842" stroke-opacity="0.08" stroke-width="1"/>
+            </pattern>
+          </defs>
+          <rect width="480" height="440" fill="url(#grid)"/>
+
+          <!-- Inflow pipe -->
+          <line x1="20" y1="80" x2="100" y2="80" stroke="#f5c842" stroke-width="2"/>
+          <polygon points="100,76 108,80 100,84" fill="#f5c842"/>
+          <text x="20" y="68" fill="#b8d4d4" font-size="11" font-family="Manrope" letter-spacing="2">ВХОДЯЩИЙ СТОК</text>
+
+          <!-- Module 1 -->
+          <rect x="100" y="60" width="100" height="80" fill="none" stroke="#f5c842" stroke-width="2"/>
+          <rect x="108" y="68" width="84" height="64" fill="#1a5757"/>
+          <text x="150" y="105" fill="#f5c842" font-size="14" font-family="Unbounded" font-weight="600" text-anchor="middle">M-01</text>
+          <text x="150" y="155" fill="#b8d4d4" font-size="10" font-family="Manrope" text-anchor="middle" letter-spacing="1">ПРИЁМ</text>
+
+          <!-- Module 2 -->
+          <line x1="200" y1="100" x2="240" y2="100" stroke="#f5c842" stroke-width="2"/>
+          <rect x="240" y="60" width="100" height="80" fill="none" stroke="#f5c842" stroke-width="2"/>
+          <rect x="248" y="68" width="84" height="64" fill="#1a5757"/>
+          <text x="290" y="105" fill="#f5c842" font-size="14" font-family="Unbounded" font-weight="600" text-anchor="middle">M-02</text>
+          <text x="290" y="155" fill="#b8d4d4" font-size="10" font-family="Manrope" text-anchor="middle" letter-spacing="1">МЕХ. ОЧИСТКА</text>
+
+          <!-- Module 3 -->
+          <line x1="340" y1="100" x2="380" y2="100" stroke="#f5c842" stroke-width="2"/>
+          <rect x="380" y="60" width="80" height="80" fill="none" stroke="#f5c842" stroke-width="2"/>
+          <rect x="388" y="68" width="64" height="64" fill="#1a5757"/>
+          <text x="420" y="105" fill="#f5c842" font-size="14" font-family="Unbounded" font-weight="600" text-anchor="middle">M-03</text>
+          <text x="420" y="155" fill="#b8d4d4" font-size="10" font-family="Manrope" text-anchor="middle" letter-spacing="1">БИО. ЭТАП</text>
+
+          <!-- Down link -->
+          <line x1="420" y1="140" x2="420" y2="200" stroke="#f5c842" stroke-width="2" stroke-dasharray="4 4"/>
+          <line x1="420" y1="200" x2="100" y2="200" stroke="#f5c842" stroke-width="2"/>
+          <line x1="100" y1="200" x2="100" y2="240" stroke="#f5c842" stroke-width="2"/>
+
+          <!-- Module 4 -->
+          <rect x="60" y="240" width="100" height="80" fill="none" stroke="#f5c842" stroke-width="2"/>
+          <rect x="68" y="248" width="84" height="64" fill="#1a5757"/>
+          <text x="110" y="285" fill="#f5c842" font-size="14" font-family="Unbounded" font-weight="600" text-anchor="middle">M-04</text>
+          <text x="110" y="335" fill="#b8d4d4" font-size="10" font-family="Manrope" text-anchor="middle" letter-spacing="1">ОТСТОЙНИК</text>
+
+          <!-- Module 5 -->
+          <line x1="160" y1="280" x2="200" y2="280" stroke="#f5c842" stroke-width="2"/>
+          <rect x="200" y="240" width="100" height="80" fill="none" stroke="#f5c842" stroke-width="2"/>
+          <rect x="208" y="248" width="84" height="64" fill="#1a5757"/>
+          <text x="250" y="285" fill="#f5c842" font-size="14" font-family="Unbounded" font-weight="600" text-anchor="middle">M-05</text>
+          <text x="250" y="335" fill="#b8d4d4" font-size="10" font-family="Manrope" text-anchor="middle" letter-spacing="1">ДООЧИСТКА</text>
+
+          <!-- Module 6 -->
+          <line x1="300" y1="280" x2="340" y2="280" stroke="#f5c842" stroke-width="2"/>
+          <rect x="340" y="240" width="100" height="80" fill="none" stroke="#f5c842" stroke-width="2"/>
+          <rect x="348" y="248" width="84" height="64" fill="#1a5757"/>
+          <text x="390" y="285" fill="#f5c842" font-size="14" font-family="Unbounded" font-weight="600" text-anchor="middle">M-06</text>
+          <text x="390" y="335" fill="#b8d4d4" font-size="10" font-family="Manrope" text-anchor="middle" letter-spacing="1">УФ-ОБЕЗЗАР.</text>
+
+          <!-- Outflow -->
+          <line x1="440" y1="280" x2="460" y2="280" stroke="#f5c842" stroke-width="2"/>
+          <line x1="390" y1="320" x2="390" y2="380" stroke="#f5c842" stroke-width="2"/>
+          <polygon points="386,380 390,388 394,380" fill="#f5c842"/>
+          <text x="280" y="395" fill="#f5c842" font-size="11" font-family="Manrope" letter-spacing="2" font-weight="600">ОЧИЩЕННАЯ ВОДА → СБРОС / РЕЦИРКУЛЯЦИЯ</text>
+
+          <!-- Indicator dots -->
+          <circle cx="150" cy="80" r="3" fill="#f5c842"><animate attributeName="opacity" values="1;0.3;1" dur="2s" repeatCount="indefinite"/></circle>
+          <circle cx="290" cy="80" r="3" fill="#f5c842"><animate attributeName="opacity" values="1;0.3;1" dur="2s" begin="0.4s" repeatCount="indefinite"/></circle>
+          <circle cx="420" cy="80" r="3" fill="#f5c842"><animate attributeName="opacity" values="1;0.3;1" dur="2s" begin="0.8s" repeatCount="indefinite"/></circle>
+          <circle cx="110" cy="260" r="3" fill="#f5c842"><animate attributeName="opacity" values="1;0.3;1" dur="2s" begin="1.2s" repeatCount="indefinite"/></circle>
+          <circle cx="250" cy="260" r="3" fill="#f5c842"><animate attributeName="opacity" values="1;0.3;1" dur="2s" begin="1.6s" repeatCount="indefinite"/></circle>
+          <circle cx="390" cy="260" r="3" fill="#f5c842"><animate attributeName="opacity" values="1;0.3;1" dur="2s" begin="2s" repeatCount="indefinite"/></circle>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STAGES ============ -->
+<section id="stages">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Этапы работы</div>
+      <h2 class="section-title">От первого контакта<br>до <em>сервисного обслуживания</em></h2>
+      <p class="section-sub">
+        Полный цикл — от инженерного аудита и подбора технологии до пусконаладки и постгарантийной поддержки. Заказчик получает готовый объект «под ключ» с обучением персонала.
+      </p>
+    </div>
+
+    <div class="stages reveal">
+      <div class="stage">
+        <div class="stage-num">01</div>
+        <div class="stage-name">Аудит</div>
+        <div class="stage-desc">Изучение объекта, замеры, анализ исходных данных, состава стоков и условий эксплуатации.</div>
+        <div class="stage-arrow">→</div>
+      </div>
+      <div class="stage">
+        <div class="stage-num">02</div>
+        <div class="stage-name">Техническое задание</div>
+        <div class="stage-desc">Разработка ТЗ совместно с заказчиком: производительность, нормативы сброса, климатические требования.</div>
+        <div class="stage-arrow">→</div>
+      </div>
+      <div class="stage">
+        <div class="stage-num">03</div>
+        <div class="stage-name">Проектирование</div>
+        <div class="stage-desc">Разработка дорожной карты, технологической схемы, конструкторской и рабочей документации.</div>
+        <div class="stage-arrow">→</div>
+      </div>
+      <div class="stage">
+        <div class="stage-num">04</div>
+        <div class="stage-name">Производство</div>
+        <div class="stage-desc">Изготовление модулей и емкостей на собственном производстве 3000 м² с заводским контролем качества.</div>
+        <div class="stage-arrow">→</div>
+      </div>
+      <div class="stage">
+        <div class="stage-num">05</div>
+        <div class="stage-name">Монтаж</div>
+        <div class="stage-desc">Доставка на объект, монтаж и сборка модулей силами наших специалистов или с шеф-надзором.</div>
+        <div class="stage-arrow">→</div>
+      </div>
+      <div class="stage">
+        <div class="stage-num">06</div>
+        <div class="stage-name">Пусконаладка</div>
+        <div class="stage-desc">Запуск, выход на проектные показатели очистки, обучение персонала заказчика работе с системой.</div>
+        <div class="stage-arrow">→</div>
+      </div>
+      <div class="stage">
+        <div class="stage-num">07</div>
+        <div class="stage-name">Сервис</div>
+        <div class="stage-desc">Гарантийное обслуживание до 5 лет и постгарантийная техническая поддержка на весь срок эксплуатации.</div>
+        <div class="stage-arrow">→</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ADVANTAGES ============ -->
+<section class="advantages">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Почему NeoWater</div>
+      <h2 class="section-title">Шесть причин<br>работать <em>с нами</em></h2>
+    </div>
+
+    <div class="adv-grid">
+      <div class="adv reveal">
+        <div class="adv-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V7l8-4 8 4v14M9 9h.01M9 13h.01M9 17h.01M15 9h.01M15 13h.01M15 17h.01"/></svg>
+        </div>
+        <div class="adv-title">Производственные площади</div>
+        <div class="adv-text">3 000 м² собственных производственных мощностей с полным циклом от резки до отгрузки готового изделия.</div>
+      </div>
+      <div class="adv reveal" style="transition-delay: 0.05s">
+        <div class="adv-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4M21 12c0 5-3.5 7.5-9 9-5.5-1.5-9-4-9-9V5l9-3 9 3v7z"/></svg>
+        </div>
+        <div class="adv-title">Гарантия надёжности</div>
+        <div class="adv-text">Гарантия от производителя до 5 лет, расчётный срок эксплуатации оборудования — до 50 лет.</div>
+      </div>
+      <div class="adv reveal" style="transition-delay: 0.1s">
+        <div class="adv-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        </div>
+        <div class="adv-title">Сервис и поддержка</div>
+        <div class="adv-text">Обучение персонала заказчика, гарантийное и постгарантийное обслуживание, удалённый мониторинг.</div>
+      </div>
+      <div class="adv reveal">
+        <div class="adv-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zM23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+        </div>
+        <div class="adv-title">Команда профессионалов</div>
+        <div class="adv-text">В штате — опытные технологи, инженеры и проектировщики с глубокой отраслевой экспертизой.</div>
+      </div>
+      <div class="adv reveal" style="transition-delay: 0.05s">
+        <div class="adv-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
+        </div>
+        <div class="adv-title">Проектные работы</div>
+        <div class="adv-text">Разработаем дорожную карту от идеи до реализации — изыскания, ТЗ, технологическая схема, рабочая документация.</div>
+      </div>
+      <div class="adv reveal" style="transition-delay: 0.1s">
+        <div class="adv-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L4 7v10l8 5 8-5V7l-8-5z"/><path d="M12 22V12M12 12L4 7M12 12l8-5"/></svg>
+        </div>
+        <div class="adv-title">Честная репутация</div>
+        <div class="adv-text">Пять лет на рынке, более 1000 отгруженных изделий, объекты по всей стране — от Чукотки до Краснодарского края.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CASES ============ -->
+<section id="cases">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Реализованные объекты</div>
+      <h2 class="section-title">Работаем с лидерами<br><em>горнодобывающей</em> отрасли</h2>
+      <p class="section-sub">
+        Решения для горно‑обогатительных комбинатов, золотодобычи, ГЭС, производств и государственных объектов. Объекты эксплуатируются от Чукотского автономного округа до Краснодарского края и Донецкой Народной Республики.
+      </p>
+    </div>
+
+    <div class="cases-grid">
+      <article class="case reveal">
+        <div class="case-loc">Бурятия</div>
+        <h3 class="case-title">Железорудное месторождение</h3>
+        <div class="case-tag">БМОС · Хозяйственно‑бытовой сток</div>
+        <div class="case-meta">
+          <div>
+            <div class="case-stat-num">1400<span class="unit">м³/сут</span></div>
+            <div class="case-stat-label">Производительность</div>
+          </div>
+          <div>
+            <div class="case-stat-num">6<span class="unit">мес</span></div>
+            <div class="case-stat-label">Срок реализации</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="case reveal" style="transition-delay: 0.05s">
+        <div class="case-loc">Краснодарский край</div>
+        <h3 class="case-title">Логистический центр</h3>
+        <div class="case-tag">БМОС · Хозяйственно‑бытовой сток</div>
+        <div class="case-meta">
+          <div>
+            <div class="case-stat-num">1000<span class="unit">м³/сут</span></div>
+            <div class="case-stat-label">Производительность</div>
+          </div>
+          <div>
+            <div class="case-stat-num">—</div>
+            <div class="case-stat-label">Завершён</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="case reveal" style="transition-delay: 0.1s">
+        <div class="case-loc">Хабаровский край</div>
+        <h3 class="case-title">Золоторудное месторождение</h3>
+        <div class="case-tag">Насосная станция повышения давления</div>
+        <div class="case-meta">
+          <div>
+            <div class="case-stat-num">1000<span class="unit">м³/сут</span></div>
+            <div class="case-stat-label">Производительность</div>
+          </div>
+          <div>
+            <div class="case-stat-num">—</div>
+            <div class="case-stat-label">Завершён</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="case reveal">
+        <div class="case-loc">Забайкальский край</div>
+        <h3 class="case-title">Железорудное месторождение, п.&nbsp;Култума</h3>
+        <div class="case-tag">Станция водоподготовки</div>
+        <div class="case-meta">
+          <div>
+            <div class="case-stat-num">500<span class="unit">м³/сут</span></div>
+            <div class="case-stat-label">Производительность</div>
+          </div>
+          <div>
+            <div class="case-stat-num">5<span class="unit">мес</span></div>
+            <div class="case-stat-label">Срок реализации</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="case reveal" style="transition-delay: 0.05s">
+        <div class="case-loc">Приморский край</div>
+        <h3 class="case-title">Терминал по перевалке, пгт.&nbsp;Славянка</h3>
+        <div class="case-tag">БМОС · Промышленный сток</div>
+        <div class="case-meta">
+          <div>
+            <div class="case-stat-num">200<span class="unit">м³/сут</span></div>
+            <div class="case-stat-label">Производительность</div>
+          </div>
+          <div>
+            <div class="case-stat-num">6<span class="unit">мес</span></div>
+            <div class="case-stat-label">Срок реализации</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="case reveal" style="transition-delay: 0.1s">
+        <div class="case-loc">Чукотский АО, п.&nbsp;Кекура</div>
+        <h3 class="case-title">Медное / золоторудное месторождение</h3>
+        <div class="case-tag">БМОС · Хозяйственно‑бытовой сток</div>
+        <div class="case-meta">
+          <div>
+            <div class="case-stat-num">144<span class="unit">м³/сут</span></div>
+            <div class="case-stat-label">Производительность</div>
+          </div>
+          <div>
+            <div class="case-stat-num">4<span class="unit">мес</span></div>
+            <div class="case-stat-label">Срок реализации</div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CLIENTS ============ -->
+<div class="clients-bar">
+  <div class="wrap">
+    <div class="clients-head reveal">
+      <div class="clients-title">Нам доверяют</div>
+    </div>
+    <div class="clients-grid reveal">
+      <div class="client-logo">Highland Gold</div>
+      <div class="client-logo">Росатом</div>
+      <div class="client-logo">Норникель</div>
+      <div class="client-logo">Восток Бункер</div>
+      <div class="client-logo">МЧС России</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ CTA / FORM ============ -->
+<section id="cta" class="cta-section">
+  <!-- Декоративные 3D-шестиугольники -->
+  <div class="hex3d gold fa" style="top: -80px; right: -60px; width: 280px; height: 322px; --rot: -18deg; transform: rotate(-18deg); opacity: 0.55;" aria-hidden="true">
+    <svg viewBox="0 0 100 115" xmlns="http://www.w3.org/2000/svg">
+      <polygon class="top"   points="50,0 100,28.75 50,57.5 0,28.75"/>
+      <polygon class="right" points="100,28.75 100,86.25 50,115 50,57.5"/>
+      <polygon class="left"  points="0,28.75 50,57.5 50,115 0,86.25"/>
+    </svg>
+  </div>
+  <div class="hex3d teal fb" style="bottom: -60px; left: 5%; width: 140px; height: 161px; --rot: 12deg; transform: rotate(12deg); opacity: 0.5;" aria-hidden="true">
+    <svg viewBox="0 0 100 115" xmlns="http://www.w3.org/2000/svg">
+      <polygon class="top"   points="50,0 100,28.75 50,57.5 0,28.75"/>
+      <polygon class="right" points="100,28.75 100,86.25 50,115 50,57.5"/>
+      <polygon class="left"  points="0,28.75 50,57.5 50,115 0,86.25"/>
+    </svg>
+  </div>
+  <div class="wrap">
+    <div class="cta-grid">
+      <div class="reveal">
+        <div class="eyebrow">Заявка на расчёт</div>
+        <h2 class="cta-headline">Получите расчёт<br>под <em>ваш объект</em><br>за 1–2&nbsp;рабочих дня</h2>
+        <p class="cta-text">
+          Расскажите о задаче — наш инженер подберёт технологическое решение, рассчитает стоимость и сроки, подготовит коммерческое предложение.
+        </p>
+        <ul class="cta-bullets">
+          <li>Бесплатный технологический аудит и расчёт</li>
+          <li>Рассмотрение заявки в течение 1–2&nbsp;рабочих дней</li>
+          <li>Ответ инженера, а не менеджера по продажам</li>
+          <li>Конфиденциальность исходных данных</li>
+        </ul>
+      </div>
+
+      <div class="form-card reveal" style="transition-delay: 0.15s">
+        <div class="form-head">
+          <div class="form-title">Заявка на расчёт</div>
+          <div class="form-sub">Заполните и отправьте — свяжемся в течение дня</div>
+        </div>
+
+        <form id="leadForm" novalidate>
+          <div class="form-row">
+            <div class="field">
+              <label for="name">Имя</label>
+              <input type="text" id="name" name="name" placeholder="Иван Иванов" required>
+            </div>
+            <div class="field">
+              <label for="company">Компания</label>
+              <input type="text" id="company" name="company" placeholder="ООО «Завод»" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="field">
+              <label for="phone">Телефон</label>
+              <input type="tel" id="phone" name="phone" placeholder="+7 (___) ___-__-__" required>
+            </div>
+            <div class="field">
+              <label for="email">E‑mail</label>
+              <input type="email" id="email" name="email" placeholder="you@company.ru" required>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="type">Тип решения</label>
+            <select id="type" name="type" required>
+              <option value="">Выберите тип сточных вод</option>
+              <option>Промышленный сток</option>
+              <option>Хозяйственно-бытовой сток</option>
+              <option>Ливневый сток</option>
+              <option>Станция водоподготовки</option>
+              <option>Емкостное оборудование</option>
+              <option>Затрудняюсь ответить — нужна консультация</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="task">Кратко о задаче</label>
+            <textarea id="task" name="task" placeholder="Объект, регион, объём стоков (м³/сут), сроки..."></textarea>
+          </div>
+
+          <button type="submit" class="form-submit">
+            Отправить заявку <span aria-hidden="true">→</span>
+          </button>
+
+          <div class="form-note">
+            Нажимая «Отправить», вы соглашаетесь с <a href="#">политикой обработки персональных данных</a>.
+          </div>
+        </form>
+
+        <div class="form-success" id="formSuccess">
+          <h3>Заявка отправлена</h3>
+          <p>Спасибо! Наш инженер свяжется с вами в течение&nbsp;1–2 рабочих дней.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer id="contacts">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="logo">
+          <svg viewBox="0 0 360 64" xmlns="http://www.w3.org/2000/svg" fill="none" aria-hidden="true">
+            <text x="0" y="48" font-family="Unbounded, sans-serif" font-weight="400" font-size="44" letter-spacing="6" fill="#f5c842">N E</text>
+            <circle cx="124" cy="32" r="19" stroke="#f5c842" stroke-width="2.4" fill="none"/>
+            <line x1="124" y1="18" x2="113" y2="43" stroke="#f5c842" stroke-width="1.2" opacity="0.85"/>
+            <line x1="124" y1="18" x2="135" y2="43" stroke="#f5c842" stroke-width="1.2" opacity="0.85"/>
+            <line x1="113" y1="43" x2="135" y2="43" stroke="#f5c842" stroke-width="1.2" opacity="0.85"/>
+            <circle cx="124" cy="18" r="3.4" fill="#f5c842"/>
+            <circle cx="113" cy="43" r="3" fill="#f5c842"/>
+            <circle cx="135" cy="43" r="3" fill="#f5c842"/>
+            <text x="150" y="48" font-family="Unbounded, sans-serif" font-weight="400" font-size="44" letter-spacing="6" fill="#f5c842">W A T</text>
+            <line x1="276" y1="13" x2="276" y2="51" stroke="#f5c842" stroke-width="2.4" stroke-linecap="round"/>
+            <line x1="276" y1="13" x2="302" y2="13" stroke="#f5c842" stroke-width="2.4" stroke-linecap="round"/>
+            <line x1="276" y1="32" x2="294" y2="32" stroke="#f5c842" stroke-width="2.4" stroke-linecap="round"/>
+            <line x1="276" y1="51" x2="302" y2="51" stroke="#f5c842" stroke-width="2.4" stroke-linecap="round"/>
+            <circle cx="307" cy="13" r="3.2" fill="#f5c842"/>
+            <circle cx="299" cy="32" r="3.2" fill="#f5c842"/>
+            <circle cx="307" cy="51" r="3.2" fill="#f5c842"/>
+            <text x="318" y="48" font-family="Unbounded, sans-serif" font-weight="400" font-size="44" letter-spacing="0" fill="#f5c842">R</text>
+          </svg>
+        </a>
+        <p>Производство блочно-модульных очистных сооружений и емкостного оборудования для промышленных предприятий. Юридическое лицо: ООО «НЕО ДРЕЙН».</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Решения</h4>
+        <ul>
+          <li><a href="#solutions">Промышленный сток</a></li>
+          <li><a href="#solutions">Хоз.-бытовой сток</a></li>
+          <li><a href="#solutions">Ливневый сток</a></li>
+          <li><a href="#solutions">Водоподготовка</a></li>
+          <li><a href="#solutions">Емкостное оборудование</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Компания</h4>
+        <ul>
+          <li><a href="#about">О компании</a></li>
+          <li><a href="#technology">Технология</a></li>
+          <li><a href="#stages">Этапы работы</a></li>
+          <li><a href="#cases">Реализованные объекты</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Контакты</h4>
+        <div class="footer-contacts">
+          <div class="footer-contact">
+            <div class="footer-contact-label">Офис</div>
+            <a href="https://yandex.ru/maps/?text=Одинцово%20Западная%2013" class="footer-contact-value" target="_blank" rel="noopener">г. Одинцово, ул. Западная 13, оф.&nbsp;109</a>
+          </div>
+          <div class="footer-contact">
+            <div class="footer-contact-label">Телефон</div>
+            <a href="tel:+74997073010" class="footer-contact-value">+7 (499) 707-30-10</a>
+          </div>
+          <div class="footer-contact">
+            <div class="footer-contact-label">E-mail</div>
+            <a href="mailto:info@neowater.ru" class="footer-contact-value">info@neowater.ru</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>© 2025 ООО «НЕО ДРЕЙН» · Все права защищены</div>
+      <div>NEOWATER.RU · ПРОИЗВОДСТВО ОЧИСТНЫХ СООРУЖЕНИЙ</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// SCROLL REVEAL
+(function () {
+  const els = document.querySelectorAll('.reveal');
+  if (!('IntersectionObserver' in window)) {
+    els.forEach(el => el.classList.add('in'));
+    return;
+  }
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  els.forEach(el => io.observe(el));
+})();
+
+// FORM SUBMIT (mock)
+(function () {
+  const form = document.getElementById('leadForm');
+  const success = document.getElementById('formSuccess');
+  if (!form) return;
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    // basic validation
+    const required = form.querySelectorAll('[required]');
+    let ok = true;
+    required.forEach(f => {
+      if (!f.value.trim()) {
+        f.style.borderColor = '#ff7676';
+        ok = false;
+      } else {
+        f.style.borderColor = '';
+      }
+    });
+    if (!ok) return;
+    form.style.display = 'none';
+    success.classList.add('show');
+    success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  });
+})();
+
+// PHONE MASK
+(function () {
+  const el = document.getElementById('phone');
+  if (!el) return;
+  el.addEventListener('input', (e) => {
+    let v = e.target.value.replace(/\D/g, '');
+    if (v.startsWith('8')) v = '7' + v.slice(1);
+    if (!v.startsWith('7')) v = '7' + v;
+    v = v.slice(0, 11);
+    let out = '+7';
+    if (v.length > 1) out += ' (' + v.slice(1, 4);
+    if (v.length >= 5) out += ') ' + v.slice(4, 7);
+    if (v.length >= 8) out += '-' + v.slice(7, 9);
+    if (v.length >= 10) out += '-' + v.slice(9, 11);
+    e.target.value = out;
+  });
+})();
+</script>
+
+</body>
+</html>
