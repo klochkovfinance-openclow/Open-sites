@@ -362,15 +362,6 @@ header {
   opacity: 0.15;
   transition: opacity 0.28s ease, transform 0.28s ease;
 }
-.hero-stat-card::after {
-  content: '';
-  position: absolute;
-  inset: -1px;
-  background: linear-gradient(110deg, transparent 0%, rgba(255, 215, 94, 0.16) 42%, transparent 70%);
-  transform: translateX(-120%);
-  transition: transform 0.55s ease;
-  pointer-events: none;
-}
 .hero-stat-card:hover,
 .hero-stat-card:focus-visible {
   transform: translateY(-6px);
@@ -382,8 +373,6 @@ header {
   opacity: 0.28;
   transform: scale(1.2);
 }
-.hero-stat-card:hover::after,
-.hero-stat-card:focus-visible::after { transform: translateX(120%); }
 .hero-stat-card:active { transform: translateY(-2px) scale(0.99); }
 
 .hero-stat-row .hero-stat-card:hover .hero-stat-num,
@@ -399,11 +388,20 @@ header {
   color: var(--white);
   margin-bottom: 8px;
   white-space: nowrap;
+  text-align: center;
   position: relative;
   z-index: 1;
   transition: color 0.28s ease, text-shadow 0.28s ease, transform 0.28s ease;
 }
-.hero-stat-row .hero-stat-num { font-size: clamp(28px, 2.2vw, 34px); letter-spacing: -0.04em; }
+.hero-stat-row .hero-stat-num {
+  width: 100%;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 2px;
+  font-size: clamp(28px, 2.2vw, 34px);
+  letter-spacing: -0.04em;
+}
 .hero-stat-card:hover .hero-stat-num,
 .hero-stat-card:focus-visible .hero-stat-num {
   color: var(--gold-bright);
@@ -411,6 +409,12 @@ header {
   transform: translateX(1px);
 }
 .hero-stat-num .plus { color: var(--gold); }
+
+.hero-stat-row .hero-stat-num .plus {
+  display: inline-block;
+  margin-left: 1px;
+  letter-spacing: 0;
+}
 .hero-stat-label {
   font-size: 13px;
   color: var(--muted);
@@ -570,6 +574,7 @@ section {
   letter-spacing: -0.05em;
   margin-bottom: 12px;
   white-space: nowrap;
+  text-align: center;
   position: relative;
   z-index: 1;
   transition: transform 0.28s ease, color 0.28s ease, text-shadow 0.28s ease;
