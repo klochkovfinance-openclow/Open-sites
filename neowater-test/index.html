@@ -397,12 +397,12 @@ header {
   z-index: 1;
   transition: color 0.28s ease, text-shadow 0.28s ease, transform 0.28s ease;
 }
-.hero-stat-row .hero-stat-num { font-size: clamp(30px, 2.55vw, 40px); }
+.hero-stat-row .hero-stat-num { font-size: clamp(28px, 2.2vw, 34px); letter-spacing: -0.04em; }
 .hero-stat-card:hover .hero-stat-num,
 .hero-stat-card:focus-visible .hero-stat-num {
   color: var(--gold-bright);
   text-shadow: 0 0 22px rgba(245, 200, 66, 0.22);
-  transform: translateX(2px) scale(1.01);
+  transform: translateX(1px);
 }
 .hero-stat-num .plus { color: var(--gold); }
 .hero-stat-label {
@@ -418,17 +418,18 @@ header {
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 16px;
 }
-.hero-stat-row .hero-stat-card { padding: 26px 18px; }
+.hero-stat-row .hero-stat-card { padding: 26px 22px; }
+.hero-stat-row .hero-stat-card .hero-stat-num { max-width: 100%; overflow: visible; }
 @media (max-width: 1280px) and (min-width: 1025px) {
   .hero-grid { grid-template-columns: 1.2fr 0.9fr; gap: 40px; }
   .hero-stat-row { grid-template-columns: 1fr; }
-  .hero-stat-row .hero-stat-num { font-size: clamp(38px, 3.4vw, 46px); }
-  .hero-stat-row .hero-stat-card { padding: 24px 24px; }
+  .hero-stat-row .hero-stat-num { font-size: clamp(30px, 2.8vw, 38px); letter-spacing: -0.04em; }
+  .hero-stat-row .hero-stat-card { padding: 24px 28px; }
 }
 
 @media (max-width: 560px) {
   .hero-stat-row { grid-template-columns: 1fr; }
-  .hero-stat-row .hero-stat-num { font-size: clamp(38px, 12vw, 48px); }
+  .hero-stat-row .hero-stat-num { font-size: clamp(34px, 10vw, 44px); }
 }
 
 /* ============ SECTION SHELL ============ */
@@ -1474,7 +1475,7 @@ footer {
         </div>
         <div class="hero-stat-row">
           <div class="hero-stat-card" tabindex="0">
-            <div class="hero-stat-num"><span class="plus">+</span>1000</div>
+            <div class="hero-stat-num">100<span class="plus">+</span></div>
             <div class="hero-stat-label">отгруженных изделий</div>
           </div>
           <div class="hero-stat-card" tabindex="0">
