@@ -116,13 +116,14 @@ header {
   text-decoration: none;
   flex-shrink: 0;
 }
-.logo svg {
+.logo svg,
+.logo img {
   width: 200px;
   height: auto;
   display: block;
 }
-@media (max-width: 600px) { .logo svg { width: 160px; } }
-.footer-brand .logo svg { width: 220px; }
+@media (max-width: 600px) { .logo svg, .logo img { width: 160px; } }
+.footer-brand .logo svg, .footer-brand .logo img { width: 220px; }
 
 .nav-links {
   display: flex;
@@ -1251,30 +1252,7 @@ footer {
   <div class="wrap">
     <nav class="nav">
       <a href="#" class="logo" aria-label="NeoWater">
-        <svg viewBox="0 0 360 64" xmlns="http://www.w3.org/2000/svg" fill="none" aria-hidden="true">
-          <!-- N E -->
-          <text x="0" y="48" font-family="Unbounded, sans-serif" font-weight="400" font-size="44" letter-spacing="6" fill="#f5c842">N E</text>
-          <!-- O with graph -->
-          <circle cx="124" cy="32" r="19" stroke="#f5c842" stroke-width="2.4" fill="none"/>
-          <line x1="124" y1="18" x2="113" y2="43" stroke="#f5c842" stroke-width="1.2" opacity="0.85"/>
-          <line x1="124" y1="18" x2="135" y2="43" stroke="#f5c842" stroke-width="1.2" opacity="0.85"/>
-          <line x1="113" y1="43" x2="135" y2="43" stroke="#f5c842" stroke-width="1.2" opacity="0.85"/>
-          <circle cx="124" cy="18" r="3.4" fill="#f5c842"/>
-          <circle cx="113" cy="43" r="3" fill="#f5c842"/>
-          <circle cx="135" cy="43" r="3" fill="#f5c842"/>
-          <!-- W A T -->
-          <text x="150" y="48" font-family="Unbounded, sans-serif" font-weight="400" font-size="44" letter-spacing="6" fill="#f5c842">W A T</text>
-          <!-- E with horizontal lines + dots (vertical bar at x=276) -->
-          <line x1="276" y1="13" x2="276" y2="51" stroke="#f5c842" stroke-width="2.4" stroke-linecap="round"/>
-          <line x1="276" y1="13" x2="302" y2="13" stroke="#f5c842" stroke-width="2.4" stroke-linecap="round"/>
-          <line x1="276" y1="32" x2="294" y2="32" stroke="#f5c842" stroke-width="2.4" stroke-linecap="round"/>
-          <line x1="276" y1="51" x2="302" y2="51" stroke="#f5c842" stroke-width="2.4" stroke-linecap="round"/>
-          <circle cx="307" cy="13" r="3.2" fill="#f5c842"/>
-          <circle cx="299" cy="32" r="3.2" fill="#f5c842"/>
-          <circle cx="307" cy="51" r="3.2" fill="#f5c842"/>
-          <!-- R -->
-          <text x="318" y="48" font-family="Unbounded, sans-serif" font-weight="400" font-size="44" letter-spacing="0" fill="#f5c842">R</text>
-        </svg>
+        <img src="./neowater-logo.svg" alt="NeoWater" width="207" height="45">
       </a>
       <ul class="nav-links">
         <li><a href="#solutions">Решения</a></li>
@@ -1938,26 +1916,8 @@ footer {
   <div class="wrap">
     <div class="footer-grid">
       <div class="footer-brand">
-        <a href="#" class="logo">
-          <svg viewBox="0 0 360 64" xmlns="http://www.w3.org/2000/svg" fill="none" aria-hidden="true">
-            <text x="0" y="48" font-family="Unbounded, sans-serif" font-weight="400" font-size="44" letter-spacing="6" fill="#f5c842">N E</text>
-            <circle cx="124" cy="32" r="19" stroke="#f5c842" stroke-width="2.4" fill="none"/>
-            <line x1="124" y1="18" x2="113" y2="43" stroke="#f5c842" stroke-width="1.2" opacity="0.85"/>
-            <line x1="124" y1="18" x2="135" y2="43" stroke="#f5c842" stroke-width="1.2" opacity="0.85"/>
-            <line x1="113" y1="43" x2="135" y2="43" stroke="#f5c842" stroke-width="1.2" opacity="0.85"/>
-            <circle cx="124" cy="18" r="3.4" fill="#f5c842"/>
-            <circle cx="113" cy="43" r="3" fill="#f5c842"/>
-            <circle cx="135" cy="43" r="3" fill="#f5c842"/>
-            <text x="150" y="48" font-family="Unbounded, sans-serif" font-weight="400" font-size="44" letter-spacing="6" fill="#f5c842">W A T</text>
-            <line x1="276" y1="13" x2="276" y2="51" stroke="#f5c842" stroke-width="2.4" stroke-linecap="round"/>
-            <line x1="276" y1="13" x2="302" y2="13" stroke="#f5c842" stroke-width="2.4" stroke-linecap="round"/>
-            <line x1="276" y1="32" x2="294" y2="32" stroke="#f5c842" stroke-width="2.4" stroke-linecap="round"/>
-            <line x1="276" y1="51" x2="302" y2="51" stroke="#f5c842" stroke-width="2.4" stroke-linecap="round"/>
-            <circle cx="307" cy="13" r="3.2" fill="#f5c842"/>
-            <circle cx="299" cy="32" r="3.2" fill="#f5c842"/>
-            <circle cx="307" cy="51" r="3.2" fill="#f5c842"/>
-            <text x="318" y="48" font-family="Unbounded, sans-serif" font-weight="400" font-size="44" letter-spacing="0" fill="#f5c842">R</text>
-          </svg>
+        <a href="#" class="logo" aria-label="NeoWater">
+          <img src="./neowater-logo.svg" alt="NeoWater" width="207" height="45">
         </a>
         <p>Производство блочно-модульных очистных сооружений и емкостного оборудования для промышленных предприятий. Юридическое лицо: ООО «НЕО ДРЕЙН».</p>
       </div>
