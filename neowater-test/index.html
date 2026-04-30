@@ -397,12 +397,12 @@ header {
   z-index: 1;
   transition: color 0.28s ease, text-shadow 0.28s ease, transform 0.28s ease;
 }
-.hero-stat-row .hero-stat-num { font-size: clamp(36px, 3.1vw, 48px); }
+.hero-stat-row .hero-stat-num { font-size: clamp(30px, 2.55vw, 40px); }
 .hero-stat-card:hover .hero-stat-num,
 .hero-stat-card:focus-visible .hero-stat-num {
   color: var(--gold-bright);
   text-shadow: 0 0 22px rgba(245, 200, 66, 0.22);
-  transform: translateX(2px) scale(1.02);
+  transform: translateX(2px) scale(1.01);
 }
 .hero-stat-num .plus { color: var(--gold); }
 .hero-stat-label {
@@ -419,10 +419,16 @@ header {
   gap: 16px;
 }
 .hero-stat-row .hero-stat-card { padding: 26px 18px; }
-@media (max-width: 1180px) and (min-width: 1025px) {
-  .hero-grid { grid-template-columns: 1.25fr 1fr; gap: 44px; }
-  .hero-stat-row .hero-stat-num { font-size: clamp(32px, 2.8vw, 42px); }
-  .hero-stat-row .hero-stat-card { padding: 24px 16px; }
+@media (max-width: 1280px) and (min-width: 1025px) {
+  .hero-grid { grid-template-columns: 1.2fr 0.9fr; gap: 40px; }
+  .hero-stat-row { grid-template-columns: 1fr; }
+  .hero-stat-row .hero-stat-num { font-size: clamp(38px, 3.4vw, 46px); }
+  .hero-stat-row .hero-stat-card { padding: 24px 24px; }
+}
+
+@media (max-width: 560px) {
+  .hero-stat-row { grid-template-columns: 1fr; }
+  .hero-stat-row .hero-stat-num { font-size: clamp(38px, 12vw, 48px); }
 }
 
 /* ============ SECTION SHELL ============ */
