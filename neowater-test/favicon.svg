@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="NeoWater favicon">
+  <defs>
+    <linearGradient id="bg" x1="8" y1="4" x2="56" y2="60" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1f6868"/>
+      <stop offset="1" stop-color="#0e3838"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="16" y1="10" x2="48" y2="54" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffd75e"/>
+      <stop offset="1" stop-color="#d4a724"/>
+    </linearGradient>
+  </defs>
+  <path d="M32 4 56 18v28L32 60 8 46V18L32 4Z" fill="url(#bg)"/>
+  <path d="M32 7.5 53 20v24L32 56.5 11 44V20L32 7.5Z" fill="none" stroke="url(#gold)" stroke-width="3"/>
+  <path d="M19 44V20h5.2l15.6 16.4V20H45v24h-5.2L24.2 27.6V44H19Z" fill="url(#gold)"/>
+  <circle cx="32" cy="32" r="5.5" fill="#0e3838" stroke="#ffd75e" stroke-width="2.5"/>
+  <path d="M23 48c4.4 2.1 13.6 2.1 18 0" fill="none" stroke="#5fa6a6" stroke-width="2" stroke-linecap="round" opacity=".9"/>
+</svg>
