@@ -799,7 +799,7 @@ section {
   color: var(--muted-2);
   font-weight: 500;
 }
-.tech-visual svg { width: 100%; max-width: 480px; height: auto; }
+.tech-visual svg { width: 100%; max-width: 520px; height: auto; }
 
 /* ============ STAGES ============ */
 .stages {
@@ -1648,77 +1648,104 @@ footer {
       </div>
 
       <div class="tech-visual reveal" style="transition-delay: 0.15s" aria-hidden="true">
-        <svg viewBox="0 0 480 440" xmlns="http://www.w3.org/2000/svg">
+        <svg viewBox="0 0 520 440" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Схема блочно-модульной очистной линии NeoWater">
           <defs>
             <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
               <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#f5c842" stroke-opacity="0.08" stroke-width="1"/>
             </pattern>
+            <linearGradient id="tankFill" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#226b6b"/>
+              <stop offset="1" stop-color="#123f3f"/>
+            </linearGradient>
+            <linearGradient id="tankHighlight" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#ffffff" stop-opacity="0.18"/>
+              <stop offset="0.45" stop-color="#ffffff" stop-opacity="0.04"/>
+              <stop offset="1" stop-color="#000000" stop-opacity="0.14"/>
+            </linearGradient>
+            <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%">
+              <feDropShadow dx="0" dy="12" stdDeviation="10" flood-color="#082525" flood-opacity="0.35"/>
+            </filter>
+            <marker id="arrowGold" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="strokeWidth">
+              <path d="M0,0 L8,4 L0,8 Z" fill="#f5c842"/>
+            </marker>
           </defs>
-          <rect width="480" height="440" fill="url(#grid)"/>
+          <rect width="520" height="440" fill="url(#grid)"/>
 
-          <!-- Inflow pipe -->
-          <line x1="20" y1="80" x2="100" y2="80" stroke="#f5c842" stroke-width="2"/>
-          <polygon points="100,76 108,80 100,84" fill="#f5c842"/>
-          <text x="20" y="68" fill="#b8d4d4" font-size="11" font-family="Manrope" letter-spacing="2">ВХОДЯЩИЙ СТОК</text>
+          <!-- Inflow pipe: label lifted and separated from the first module -->
+          <text x="28" y="72" fill="#b8d4d4" font-size="10" font-family="Manrope" letter-spacing="1.6">ВХОДЯЩИЙ СТОК</text>
+          <line x1="28" y1="96" x2="108" y2="96" stroke="#f5c842" stroke-width="2.2" marker-end="url(#arrowGold)"/>
 
-          <!-- Module 1 -->
-          <rect x="100" y="60" width="100" height="80" fill="none" stroke="#f5c842" stroke-width="2"/>
-          <rect x="108" y="68" width="84" height="64" fill="#1a5757"/>
-          <text x="150" y="105" fill="#f5c842" font-size="14" font-family="Unbounded" font-weight="600" text-anchor="middle">M-01</text>
-          <text x="150" y="155" fill="#b8d4d4" font-size="10" font-family="Manrope" text-anchor="middle" letter-spacing="1">ПРИЁМ</text>
+          <!-- Top row modules -->
+          <g filter="url(#softGlow)">
+            <g class="module-tank">
+              <rect x="112" y="58" width="104" height="76" rx="30" fill="none" stroke="#f5c842" stroke-width="2.4"/>
+              <rect x="122" y="68" width="84" height="56" rx="24" fill="url(#tankFill)"/>
+              <rect x="126" y="72" width="28" height="48" rx="14" fill="url(#tankHighlight)" opacity="0.7"/>
+              <text x="164" y="101" fill="#f5c842" font-size="14" font-family="Unbounded" font-weight="600" text-anchor="middle">M-01</text>
+              <text x="164" y="154" fill="#b8d4d4" font-size="9.5" font-family="Manrope" text-anchor="middle" letter-spacing="0.8">ПРИЁМ</text>
+            </g>
+            <g class="module-tank">
+              <rect x="252" y="58" width="104" height="76" rx="30" fill="none" stroke="#f5c842" stroke-width="2.4"/>
+              <rect x="262" y="68" width="84" height="56" rx="24" fill="url(#tankFill)"/>
+              <rect x="266" y="72" width="28" height="48" rx="14" fill="url(#tankHighlight)" opacity="0.7"/>
+              <text x="304" y="101" fill="#f5c842" font-size="14" font-family="Unbounded" font-weight="600" text-anchor="middle">M-02</text>
+              <text x="304" y="154" fill="#b8d4d4" font-size="9.5" font-family="Manrope" text-anchor="middle" letter-spacing="0.7">МЕХ. ОЧИСТКА</text>
+            </g>
+            <g class="module-tank">
+              <rect x="392" y="58" width="104" height="76" rx="30" fill="none" stroke="#f5c842" stroke-width="2.4"/>
+              <rect x="402" y="68" width="84" height="56" rx="24" fill="url(#tankFill)"/>
+              <rect x="406" y="72" width="28" height="48" rx="14" fill="url(#tankHighlight)" opacity="0.7"/>
+              <text x="444" y="101" fill="#f5c842" font-size="14" font-family="Unbounded" font-weight="600" text-anchor="middle">M-03</text>
+              <text x="444" y="154" fill="#b8d4d4" font-size="9.5" font-family="Manrope" text-anchor="middle" letter-spacing="0.7">БИО. ЭТАП</text>
+            </g>
+          </g>
 
-          <!-- Module 2 -->
-          <line x1="200" y1="100" x2="240" y2="100" stroke="#f5c842" stroke-width="2"/>
-          <rect x="240" y="60" width="100" height="80" fill="none" stroke="#f5c842" stroke-width="2"/>
-          <rect x="248" y="68" width="84" height="64" fill="#1a5757"/>
-          <text x="290" y="105" fill="#f5c842" font-size="14" font-family="Unbounded" font-weight="600" text-anchor="middle">M-02</text>
-          <text x="290" y="155" fill="#b8d4d4" font-size="10" font-family="Manrope" text-anchor="middle" letter-spacing="1">МЕХ. ОЧИСТКА</text>
-
-          <!-- Module 3 -->
-          <line x1="340" y1="100" x2="380" y2="100" stroke="#f5c842" stroke-width="2"/>
-          <rect x="380" y="60" width="80" height="80" fill="none" stroke="#f5c842" stroke-width="2"/>
-          <rect x="388" y="68" width="64" height="64" fill="#1a5757"/>
-          <text x="420" y="105" fill="#f5c842" font-size="14" font-family="Unbounded" font-weight="600" text-anchor="middle">M-03</text>
-          <text x="420" y="155" fill="#b8d4d4" font-size="10" font-family="Manrope" text-anchor="middle" letter-spacing="1">БИО. ЭТАП</text>
+          <!-- Connections top row -->
+          <line x1="216" y1="96" x2="252" y2="96" stroke="#f5c842" stroke-width="2.2"/>
+          <line x1="356" y1="96" x2="392" y2="96" stroke="#f5c842" stroke-width="2.2"/>
 
           <!-- Down link -->
-          <line x1="420" y1="140" x2="420" y2="200" stroke="#f5c842" stroke-width="2" stroke-dasharray="4 4"/>
-          <line x1="420" y1="200" x2="100" y2="200" stroke="#f5c842" stroke-width="2"/>
-          <line x1="100" y1="200" x2="100" y2="240" stroke="#f5c842" stroke-width="2"/>
+          <path d="M444 134 V184 H104 V226" fill="none" stroke="#f5c842" stroke-width="2.2" stroke-dasharray="5 6" stroke-linecap="round" stroke-linejoin="round"/>
 
-          <!-- Module 4 -->
-          <rect x="60" y="240" width="100" height="80" fill="none" stroke="#f5c842" stroke-width="2"/>
-          <rect x="68" y="248" width="84" height="64" fill="#1a5757"/>
-          <text x="110" y="285" fill="#f5c842" font-size="14" font-family="Unbounded" font-weight="600" text-anchor="middle">M-04</text>
-          <text x="110" y="335" fill="#b8d4d4" font-size="10" font-family="Manrope" text-anchor="middle" letter-spacing="1">ОТСТОЙНИК</text>
+          <!-- Bottom row modules -->
+          <g filter="url(#softGlow)">
+            <g class="module-tank">
+              <rect x="52" y="226" width="104" height="76" rx="30" fill="none" stroke="#f5c842" stroke-width="2.4"/>
+              <rect x="62" y="236" width="84" height="56" rx="24" fill="url(#tankFill)"/>
+              <rect x="66" y="240" width="28" height="48" rx="14" fill="url(#tankHighlight)" opacity="0.7"/>
+              <text x="104" y="269" fill="#f5c842" font-size="14" font-family="Unbounded" font-weight="600" text-anchor="middle">M-04</text>
+              <text x="104" y="322" fill="#b8d4d4" font-size="9.5" font-family="Manrope" text-anchor="middle" letter-spacing="0.7">ОТСТОЙНИК</text>
+            </g>
+            <g class="module-tank">
+              <rect x="208" y="226" width="104" height="76" rx="30" fill="none" stroke="#f5c842" stroke-width="2.4"/>
+              <rect x="218" y="236" width="84" height="56" rx="24" fill="url(#tankFill)"/>
+              <rect x="222" y="240" width="28" height="48" rx="14" fill="url(#tankHighlight)" opacity="0.7"/>
+              <text x="260" y="269" fill="#f5c842" font-size="14" font-family="Unbounded" font-weight="600" text-anchor="middle">M-05</text>
+              <text x="260" y="322" fill="#b8d4d4" font-size="9.5" font-family="Manrope" text-anchor="middle" letter-spacing="0.7">ДООЧИСТКА</text>
+            </g>
+            <g class="module-tank">
+              <rect x="364" y="226" width="104" height="76" rx="30" fill="none" stroke="#f5c842" stroke-width="2.4"/>
+              <rect x="374" y="236" width="84" height="56" rx="24" fill="url(#tankFill)"/>
+              <rect x="378" y="240" width="28" height="48" rx="14" fill="url(#tankHighlight)" opacity="0.7"/>
+              <text x="416" y="269" fill="#f5c842" font-size="14" font-family="Unbounded" font-weight="600" text-anchor="middle">M-06</text>
+              <text x="416" y="322" fill="#b8d4d4" font-size="9.2" font-family="Manrope" text-anchor="middle" letter-spacing="0.55">УФ-ОБЕЗЗАР.</text>
+            </g>
+          </g>
 
-          <!-- Module 5 -->
-          <line x1="160" y1="280" x2="200" y2="280" stroke="#f5c842" stroke-width="2"/>
-          <rect x="200" y="240" width="100" height="80" fill="none" stroke="#f5c842" stroke-width="2"/>
-          <rect x="208" y="248" width="84" height="64" fill="#1a5757"/>
-          <text x="250" y="285" fill="#f5c842" font-size="14" font-family="Unbounded" font-weight="600" text-anchor="middle">M-05</text>
-          <text x="250" y="335" fill="#b8d4d4" font-size="10" font-family="Manrope" text-anchor="middle" letter-spacing="1">ДООЧИСТКА</text>
-
-          <!-- Module 6 -->
-          <line x1="300" y1="280" x2="340" y2="280" stroke="#f5c842" stroke-width="2"/>
-          <rect x="340" y="240" width="100" height="80" fill="none" stroke="#f5c842" stroke-width="2"/>
-          <rect x="348" y="248" width="84" height="64" fill="#1a5757"/>
-          <text x="390" y="285" fill="#f5c842" font-size="14" font-family="Unbounded" font-weight="600" text-anchor="middle">M-06</text>
-          <text x="390" y="335" fill="#b8d4d4" font-size="10" font-family="Manrope" text-anchor="middle" letter-spacing="1">УФ-ОБЕЗЗАР.</text>
-
-          <!-- Outflow -->
-          <line x1="440" y1="280" x2="460" y2="280" stroke="#f5c842" stroke-width="2"/>
-          <line x1="390" y1="320" x2="390" y2="380" stroke="#f5c842" stroke-width="2"/>
-          <polygon points="386,380 390,388 394,380" fill="#f5c842"/>
-          <text x="280" y="395" fill="#f5c842" font-size="11" font-family="Manrope" letter-spacing="2" font-weight="600">ОЧИЩЕННАЯ ВОДА → СБРОС / РЕЦИРКУЛЯЦИЯ</text>
+          <!-- Connections bottom row and outflow -->
+          <line x1="156" y1="264" x2="208" y2="264" stroke="#f5c842" stroke-width="2.2"/>
+          <line x1="312" y1="264" x2="364" y2="264" stroke="#f5c842" stroke-width="2.2"/>
+          <line x1="468" y1="264" x2="496" y2="264" stroke="#f5c842" stroke-width="2.2" marker-end="url(#arrowGold)"/>
+          <path d="M416 302 V360" fill="none" stroke="#f5c842" stroke-width="2.2" marker-end="url(#arrowGold)"/>
+          <text x="268" y="382" fill="#f5c842" font-size="10" font-family="Manrope" letter-spacing="1.4" font-weight="600">ОЧИЩЕННАЯ ВОДА → СБРОС / РЕЦИРКУЛЯЦИЯ</text>
 
           <!-- Indicator dots -->
-          <circle cx="150" cy="80" r="3" fill="#f5c842"><animate attributeName="opacity" values="1;0.3;1" dur="2s" repeatCount="indefinite"/></circle>
-          <circle cx="290" cy="80" r="3" fill="#f5c842"><animate attributeName="opacity" values="1;0.3;1" dur="2s" begin="0.4s" repeatCount="indefinite"/></circle>
-          <circle cx="420" cy="80" r="3" fill="#f5c842"><animate attributeName="opacity" values="1;0.3;1" dur="2s" begin="0.8s" repeatCount="indefinite"/></circle>
-          <circle cx="110" cy="260" r="3" fill="#f5c842"><animate attributeName="opacity" values="1;0.3;1" dur="2s" begin="1.2s" repeatCount="indefinite"/></circle>
-          <circle cx="250" cy="260" r="3" fill="#f5c842"><animate attributeName="opacity" values="1;0.3;1" dur="2s" begin="1.6s" repeatCount="indefinite"/></circle>
-          <circle cx="390" cy="260" r="3" fill="#f5c842"><animate attributeName="opacity" values="1;0.3;1" dur="2s" begin="2s" repeatCount="indefinite"/></circle>
+          <circle cx="164" cy="76" r="3" fill="#f5c842"><animate attributeName="opacity" values="1;0.3;1" dur="2s" repeatCount="indefinite"/></circle>
+          <circle cx="304" cy="76" r="3" fill="#f5c842"><animate attributeName="opacity" values="1;0.3;1" dur="2s" begin="0.4s" repeatCount="indefinite"/></circle>
+          <circle cx="444" cy="76" r="3" fill="#f5c842"><animate attributeName="opacity" values="1;0.3;1" dur="2s" begin="0.8s" repeatCount="indefinite"/></circle>
+          <circle cx="104" cy="244" r="3" fill="#f5c842"><animate attributeName="opacity" values="1;0.3;1" dur="2s" begin="1.2s" repeatCount="indefinite"/></circle>
+          <circle cx="260" cy="244" r="3" fill="#f5c842"><animate attributeName="opacity" values="1;0.3;1" dur="2s" begin="1.6s" repeatCount="indefinite"/></circle>
+          <circle cx="416" cy="244" r="3" fill="#f5c842"><animate attributeName="opacity" values="1;0.3;1" dur="2s" begin="2s" repeatCount="indefinite"/></circle>
         </svg>
       </div>
     </div>
